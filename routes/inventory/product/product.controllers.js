@@ -95,7 +95,7 @@ const createSingleProduct = async (req, res) => {
           status: req.body.status,
         },
       });
-      createdProduct.thumbnail_image_url = `${HOST}:${PORT}/v1/product-image/${file.filename}`;
+      createdProduct.thumbnail_image_url = `${HOST}/v1/product-image/${file.filename}`;
       // stock product's account transaction create
       await prisma.transaction.create({
         data: {
@@ -138,7 +138,7 @@ const getAllProduct = async (req, res) => {
       // attach signed url to each product
       for (let product of allProduct) {
         if (product.thumbnail_image) {
-          product.thumbnail_image_url = `${HOST}:${PORT}/v1/product-image/${product.thumbnail_image}`;
+          product.thumbnail_image_url = `${HOST}/v1/product-image/${product.thumbnail_image}`;
         }
       }
       res.json(allProduct);
@@ -184,7 +184,7 @@ const getAllProduct = async (req, res) => {
       // attach signed url to each product
       for (let product of allProduct) {
         if (product.thumbnail_image) {
-          product.thumbnail_image_url = `${HOST}:${PORT}/v1/product-image/${product.thumbnail_image}`;
+          product.thumbnail_image_url = `${HOST}/v1/product-image/${product.thumbnail_image}`;
         }
       }
       res.json(allProduct);
@@ -241,7 +241,7 @@ const getAllProduct = async (req, res) => {
       // attach signed url to each product
       for (let product of allProduct) {
         if (product.thumbnail_image) {
-          product.thumbnail_image_url = `${HOST}:${PORT}/v1/product-image/${product.thumbnail_image}`;
+          product.thumbnail_image_url = `${HOST}/v1/product-image/${product.thumbnail_image}`;
         }
       }
       res.json(allProduct);
@@ -277,7 +277,7 @@ const getAllProduct = async (req, res) => {
       // attach signed url to each product
       for (let product of allProduct) {
         if (product.thumbnail_image) {
-          product.thumbnail_image_url = `${HOST}:${PORT}/v1/product-image/${product.thumbnail_image}`;
+          product.thumbnail_image_url = `${HOST}/v1/product-image/${product.thumbnail_image}`;
         }
       }
       res.json(allProduct);
@@ -308,7 +308,7 @@ const getSingleProduct = async (req, res) => {
       },
     });
     if (singleProduct && singleProduct.thumbnail_image) {
-      singleProduct.thumbnail_image_url = `${HOST}:${PORT}/v1/product-image/${singleProduct.thumbnail_image}`;
+      singleProduct.thumbnail_image_url = `${HOST}/v1/product-image/${singleProduct.thumbnail_image}`;
     }
     res.json(singleProduct);
   } catch (error) {
